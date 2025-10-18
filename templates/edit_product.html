@@ -19,6 +19,17 @@
                         <input type="text" class="form-control" id="title" name="title" value="{{ product.title }}" required>
                     </div>
                     <div class="mb-3">
+                        <label for="category_id" class="form-label"><i class="fas fa-tags"></i> Category</label>
+                        <select class="form-select" id="category_id" name="category_id" required>
+                            <option value="">Select a category</option>
+                            {% for category in categories %}
+                            <option value="{{ category.id }}" {% if product.category_id == category.id %}selected{% endif %}>
+                                {{ category.name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="description" class="form-label"><i class="fas fa-align-left"></i> Description</label>
                         <textarea class="form-control" id="description" name="description" rows="4" required>{{ product.description }}</textarea>
                     </div>

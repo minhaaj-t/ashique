@@ -186,14 +186,22 @@
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
         
-        .jewelry-badge {
-            background: linear-gradient(to right, var(--gold), #C9A030);
-            color: #333;
+        /* Modern category badge styling */
+        .category-badge {
+            background: linear-gradient(135deg, var(--qatar-maroon), var(--dark-maroon));
+            color: var(--qatar-white);
             font-weight: 500;
-            padding: 5px 15px;
+            padding: 6px 15px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             display: inline-block;
+            box-shadow: 0 2px 5px rgba(141, 27, 61, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .category-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(141, 27, 61, 0.3);
         }
         
         .section-title {
@@ -308,6 +316,88 @@
             50% { opacity: 1; }
             100% { transform: scale(1.5); opacity: 0; }
         }
+        
+        /* Decorative elements for hero section */
+        .hero-decor {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 3rem;
+            z-index: 0;
+        }
+        
+        .hero-decor-1 {
+            top: 20%;
+            left: 5%;
+        }
+        
+        .hero-decor-2 {
+            top: 30%;
+            right: 7%;
+        }
+        
+        .hero-decor-3 {
+            bottom: 25%;
+            left: 8%;
+        }
+        
+        .hero-decor-4 {
+            bottom: 20%;
+            right: 5%;
+        }
+        
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.1;
+        }
+        
+        .floating-1 {
+            top: 15%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-2 {
+            top: 25%;
+            right: 12%;
+            animation: float 6s ease-in-out infinite 1s;
+        }
+        
+        .floating-3 {
+            bottom: 20%;
+            left: 15%;
+            animation: float 7s ease-in-out infinite 2s;
+        }
+        
+        .floating-4 {
+            bottom: 30%;
+            right: 10%;
+            animation: float 9s ease-in-out infinite 0.5s;
+        }
+        
+        /* Category navigation */
+        .category-nav {
+            background: linear-gradient(to right, #f8f4f0, #fff);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .category-btn {
+            margin: 5px;
+            border-radius: 20px;
+            border: 1px solid var(--qatar-maroon);
+            color: var(--qatar-maroon);
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: linear-gradient(to right, var(--qatar-maroon), var(--dark-maroon));
+            color: white;
+            border-color: var(--qatar-maroon);
+        }
     </style>
 </head>
 <body>
@@ -340,8 +430,14 @@
                         <a class="nav-link" href="#testimonials">Testimonials</a>
                     </li>
                     {% if current_user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin') }}">Admin</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown">
+                            Admin
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url_for('admin') }}">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('admin_categories') }}">Manage Categories</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -380,7 +476,7 @@
                     <h5><i class="fas fa-gem"></i> Jannah Jewels</h5>
                     <p>Exquisite jewelry crafted with passion and precision. Discover timeless pieces that celebrate life's most precious moments.</p>
                     <div class="mt-3">
-                        <span class="jewelry-badge">Luxury Collection</span>
+                        <span class="category-badge">Luxury Collection</span>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">

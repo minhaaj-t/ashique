@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Add Category - Jannah Jewels{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header" style="background: linear-gradient(to right, #8D1B3D, #5D1229); color: white;">
+                <h3 class="float-start"><i class="fas fa-tags"></i> Add New Category</h3>
+                <a href="{{ url_for('admin_categories') }}" class="btn btn-light float-end">
+                    <i class="fas fa-arrow-left"></i> Back to Categories
+                </a>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label"><i class="fas fa-tag"></i> Category Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="e.g., Engagement Rings" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label"><i class="fas fa-align-left"></i> Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" placeholder="Describe this category..."></textarea>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-gold">
+                            <i class="fas fa-save"></i> Add Category
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

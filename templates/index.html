@@ -2,13 +2,33 @@
 
 {% block hero %}
 <div class="hero-section">
-    <div class="container text-center">
-        <h1 class="display-4 floating">Exquisite Jewelry Collection</h1>
-        <p class="lead">Discover timeless pieces that celebrate life's most precious moments</p>
+    <!-- Decorative elements -->
+    <div class="hero-decor hero-decor-1"><i class="fas fa-gem"></i></div>
+    <div class="hero-decor hero-decor-2"><i class="fas fa-crown"></i></div>
+    <div class="hero-decor hero-decor-3"><i class="fas fa-ring"></i></div>
+    <div class="hero-decor hero-decor-4"><i class="fas fa-heart"></i></div>
+    
+    <!-- Floating decorative elements -->
+    <div class="floating-element floating-1"><i class="fas fa-star fa-2x"></i></div>
+    <div class="floating-element floating-2"><i class="fas fa-star fa-3x"></i></div>
+    <div class="floating-element floating-3"><i class="fas fa-star fa-2x"></i></div>
+    <div class="floating-element floating-4"><i class="fas fa-star fa-3x"></i></div>
+    
+    <div class="container text-center position-relative" style="z-index: 1;">
+        <h1 class="display-3 floating mb-4">Jannah Jewels</h1>
+        <p class="lead mb-5">Exquisite jewelry crafted with passion and precision<br>Discover timeless pieces that celebrate life's most precious moments</p>
         <div class="mt-4">
-            <a href="#collections" class="btn btn-gold btn-lg">
-                <i class="fas fa-ring"></i> Explore Collections
+
+            <a href="#collections" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-gem"></i> Explore Collections
             </a>
+        </div>
+        
+        <!-- Decorative badges -->
+        <div class="mt-5">
+            <span class="category-badge me-2"><i class="fas fa-award"></i> Premium Quality</span>
+            <span class="category-badge me-2"><i class="fas fa-shield-alt"></i> Certified Authentic</span>
+            <span class="category-badge"><i class="fas fa-truck"></i> Worldwide Shipping</span>
         </div>
     </div>
 </div>
@@ -17,49 +37,31 @@
 {% block title %}Home - Jannah Jewels{% endblock %}
 
 {% block content %}
+<!-- Category Navigation -->
+{% if categories %}
+<div class="category-nav">
+    <div class="d-flex flex-wrap justify-content-center">
+        <a href="{{ url_for('index') }}" class="btn category-btn {% if not current_category %}active{% endif %}">All Collections</a>
+        {% for category in categories %}
+        <a href="{{ url_for('category_products', category_id=category.id) }}" class="btn category-btn {% if current_category and current_category.id == category.id %}active{% endif %}">
+            {{ category.name }}
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if current_category %}
+<div class="section-title">
+    <h2>{{ current_category.name }}</h2>
+    <p>{{ current_category.description }}</p>
+</div>
+{% else %}
 <div class="section-title" id="collections">
     <h2>Our Jewelry Collections</h2>
     <p>Handcrafted with precision and passion</p>
 </div>
-
-<div class="row mb-5">
-    <div class="col-md-3 mb-4">
-        <div class="card h-100 text-center decorative-border">
-            <div class="card-body">
-                <i class="fas fa-ring fa-3x mb-3" style="color: #D4AF37;"></i>
-                <h5>Engagement Rings</h5>
-                <p class="text-muted">Symbolize your eternal love with our stunning collection</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 mb-4">
-        <div class="card h-100 text-center decorative-border">
-            <div class="card-body">
-                <i class="fas fa-gem fa-3x mb-3" style="color: #D4AF37;"></i>
-                <h5>Fine Jewelry</h5>
-                <p class="text-muted">Elegant pieces for special occasions and everyday luxury</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 mb-4">
-        <div class="card h-100 text-center decorative-border">
-            <div class="card-body">
-                <i class="fas fa-crown fa-3x mb-3" style="color: #D4AF37;"></i>
-                <h5>Royal Collection</h5>
-                <p class="text-muted">Exclusive pieces inspired by royal elegance</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3 mb-4">
-        <div class="card h-100 text-center decorative-border">
-            <div class="card-body">
-                <i class="fas fa-heart fa-3x mb-3" style="color: #D4AF37;"></i>
-                <h5>Gift Sets</h5>
-                <p class="text-muted">Perfect curated gifts for your loved ones</p>
-            </div>
-        </div>
-    </div>
-</div>
+{% endif %}
 
 {% if products %}
 <div class="row">
@@ -77,6 +79,9 @@
             {% endif %}
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">{{ product.title }}</h5>
+                {% if product.category %}
+                <span class="category-badge mb-2">{{ product.category.name }}</span>
+                {% endif %}
                 <p class="card-text flex-grow-1">{{ product.description[:100] }}{% if product.description|length > 100 %}...{% endif %}</p>
                 <div class="mt-auto">
                     <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn btn-primary w-100">
@@ -150,7 +155,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <p class="card-text">"The gold necklace I bought for my daughter's wedding was absolutely stunning! The craftsmanship exceeded our expectations. Will definitely shop here again."</p>
-                <footer class="blockquote-footer">Fathima Rahana, Kochi</footer>
+                <footer class="blockquote-footer">Anjali Menon, Kochi</footer>
             </div>
         </div>
     </div>
@@ -165,7 +170,7 @@
                     <i class="fas fa-star"></i>
                 </div>
                 <p class="card-text">"I purchased an engagement ring for my fiancée and she was over the moon! The design was exactly what we wanted. Excellent service and quality."</p>
-                <footer class="blockquote-footer">Shanid PV, Thiruvananthapuram</footer>
+                <footer class="blockquote-footer">Rahul Pillai, Thiruvananthapuram</footer>
             </div>
         </div>
     </div>
