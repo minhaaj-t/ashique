@@ -14,12 +14,44 @@
             --gold: #D4AF37;
             --light-gold: #F9E076;
             --dark-maroon: #5D1229;
+            --light-maroon: #B84A62;
         }
         
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #fdfdfd;
             color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Decorative elements */
+        .decorative-corner {
+            position: absolute;
+            font-size: 2rem;
+            color: var(--gold);
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .corner-tl {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .corner-tr {
+            top: 20px;
+            right: 20px;
+        }
+        
+        .corner-bl {
+            bottom: 20px;
+            left: 20px;
+        }
+        
+        .corner-br {
+            bottom: 20px;
+            right: 20px;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -117,6 +149,17 @@
             background: linear-gradient(to right, var(--qatar-maroon), var(--dark-maroon));
             color: var(--qatar-white);
             padding: 2rem 0;
+            position: relative;
+        }
+        
+        .footer:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--light-gold));
         }
         
         .footer h5 {
@@ -170,13 +213,35 @@
         }
         
         .hero-section {
-            background: linear-gradient(rgba(141, 27, 61, 0.8), rgba(93, 18, 41, 0.9)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(141, 27, 61, 0.85), rgba(93, 18, 41, 0.9)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
             padding: 5rem 0;
             margin-bottom: 2rem;
             border-radius: 0 0 20px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--light-gold));
+        }
+        
+        .hero-section:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(to right, var(--gold), var(--light-gold));
         }
         
         .hero-section h1 {
@@ -190,9 +255,68 @@
             max-width: 700px;
             margin: 0 auto;
         }
+        
+        /* Decorative border elements */
+        .decorative-border {
+            position: relative;
+            padding: 20px;
+        }
+        
+        .decorative-border:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border-top: 2px solid var(--gold);
+            border-left: 2px solid var(--gold);
+        }
+        
+        .decorative-border:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            border-bottom: 2px solid var(--gold);
+            border-right: 2px solid var(--gold);
+        }
+        
+        /* Animation for decorative elements */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        /* Sparkle effect */
+        .sparkle {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0;
+        }
+        
+        @keyframes sparkle {
+            0% { transform: scale(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
     </style>
 </head>
 <body>
+    <!-- Decorative corner elements -->
+    <div class="decorative-corner corner-tl">✧</div>
+    <div class="decorative-corner corner-tr">✧</div>
+    <div class="decorative-corner corner-bl">✧</div>
+    <div class="decorative-corner corner-br">✧</div>
+
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('index') }}">
@@ -211,6 +335,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
@@ -280,6 +407,30 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Create sparkle effect
+        function createSparkles() {
+            const heroSection = document.querySelector('.hero-section');
+            if (!heroSection) return;
+            
+            for (let i = 0; i < 15; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.width = Math.random() * 5 + 2 + 'px';
+                sparkle.style.height = sparkle.style.width;
+                sparkle.style.animation = `sparkle ${Math.random() * 2 + 1}s infinite`;
+                sparkle.style.animationDelay = Math.random() * 2 + 's';
+                heroSection.appendChild(sparkle);
+            }
+        }
+        
+        // Initialize sparkles when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createSparkles();
+        });
+    </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

@@ -3,7 +3,7 @@
 {% block hero %}
 <div class="hero-section">
     <div class="container text-center">
-        <h1 class="display-4">Exquisite Jewelry Collection</h1>
+        <h1 class="display-4 floating">Exquisite Jewelry Collection</h1>
         <p class="lead">Discover timeless pieces that celebrate life's most precious moments</p>
         <div class="mt-4">
             <a href="#collections" class="btn btn-gold btn-lg">
@@ -20,6 +20,45 @@
 <div class="section-title" id="collections">
     <h2>Our Jewelry Collections</h2>
     <p>Handcrafted with precision and passion</p>
+</div>
+
+<div class="row mb-5">
+    <div class="col-md-3 mb-4">
+        <div class="card h-100 text-center decorative-border">
+            <div class="card-body">
+                <i class="fas fa-ring fa-3x mb-3" style="color: #D4AF37;"></i>
+                <h5>Engagement Rings</h5>
+                <p class="text-muted">Symbolize your eternal love with our stunning collection</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="card h-100 text-center decorative-border">
+            <div class="card-body">
+                <i class="fas fa-gem fa-3x mb-3" style="color: #D4AF37;"></i>
+                <h5>Fine Jewelry</h5>
+                <p class="text-muted">Elegant pieces for special occasions and everyday luxury</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="card h-100 text-center decorative-border">
+            <div class="card-body">
+                <i class="fas fa-crown fa-3x mb-3" style="color: #D4AF37;"></i>
+                <h5>Royal Collection</h5>
+                <p class="text-muted">Exclusive pieces inspired by royal elegance</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="card h-100 text-center decorative-border">
+            <div class="card-body">
+                <i class="fas fa-heart fa-3x mb-3" style="color: #D4AF37;"></i>
+                <h5>Gift Sets</h5>
+                <p class="text-muted">Perfect curated gifts for your loved ones</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% if products %}
@@ -62,20 +101,88 @@
 
 <div class="row mb-5">
     <div class="col-md-6">
-        <h4><i class="fas fa-crown text-gold"></i> Crafted with Excellence</h4>
-        <p>Each piece in our collection is meticulously crafted by master artisans who combine traditional techniques with contemporary design.</p>
+        <div class="card decorative-border h-100">
+            <div class="card-body">
+                <h4><i class="fas fa-crown text-gold"></i> Crafted with Excellence</h4>
+                <p>Each piece in our collection is meticulously crafted by master artisans who combine traditional techniques with contemporary design.</p>
+            </div>
+        </div>
     </div>
     <div class="col-md-6">
-        <h4><i class="fas fa-certificate text-gold"></i> Premium Quality</h4>
-        <p>We source only the finest materials and gemstones, ensuring every piece meets our exacting standards of quality and beauty.</p>
+        <div class="card decorative-border h-100">
+            <div class="card-body">
+                <h4><i class="fas fa-certificate text-gold"></i> Premium Quality</h4>
+                <p>We source only the finest materials and gemstones, ensuring every piece meets our exacting standards of quality and beauty.</p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-        <h4><i class="fas fa-heart text-gold"></i> Timeless Designs</h4>
-        <p>Our collections feature timeless designs that transcend trends, creating pieces you'll treasure for generations.</p>
+    <div class="col-md-6 mt-4">
+        <div class="card decorative-border h-100">
+            <div class="card-body">
+                <h4><i class="fas fa-heart text-gold"></i> Timeless Designs</h4>
+                <p>Our collections feature timeless designs that transcend trends, creating pieces you'll treasure for generations.</p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-        <h4><i class="fas fa-shield-alt text-gold"></i> Ethical Sourcing</h4>
-        <p>We are committed to ethical sourcing practices and sustainability in all our operations.</p>
+    <div class="col-md-6 mt-4">
+        <div class="card decorative-border h-100">
+            <div class="card-body">
+                <h4><i class="fas fa-shield-alt text-gold"></i> Ethical Sourcing</h4>
+                <p>We are committed to ethical sourcing practices and sustainability in all our operations.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-title mt-5" id="testimonials">
+    <h2>What Our Customers Say</h2>
+</div>
+
+<div class="row mb-5">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="text-warning mb-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text">"The gold necklace I bought for my daughter's wedding was absolutely stunning! The craftsmanship exceeded our expectations. Will definitely shop here again."</p>
+                <footer class="blockquote-footer">Fathima Rahana, Kochi</footer>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="text-warning mb-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="card-text">"I purchased an engagement ring for my fiancée and she was over the moon! The design was exactly what we wanted. Excellent service and quality."</p>
+                <footer class="blockquote-footer">Shanid PV, Thiruvananthapuram</footer>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <div class="text-warning mb-2">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="card-text">"The Kundan earrings I ordered for my sister's wedding were exquisite. The attention to detail was remarkable. Fast delivery too!"</p>
+                <footer class="blockquote-footer">Priya Nair, Kozhikode</footer>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
