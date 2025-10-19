@@ -1,25 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}{{ product.title }} - Jannah Jewels{% endblock %}
+{% block title %}{{ product.title }} - She Aura{% endblock %}
 
 {% block content %}
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-lg-6 col-md-12 col-sm-12">
         {% if product.image_url %}
-        <div class="product-image-detail" style="height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #f8f4f0, #fff); border-radius: 10px; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 10px; left: 10px; font-size: 2rem; color: #D4AF37; opacity: 0.3;">✧</div>
-            <div style="position: absolute; bottom: 10px; right: 10px; font-size: 2rem; color: #D4AF37; opacity: 0.3;">✧</div>
+        <div class="product-image-detail" style="height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #2a2a2a, #1a1a1a); border-radius: 10px; position: relative; overflow: hidden; border: 1px solid #666666;">
             <img src="{{ product.image_url }}" class="img-fluid" alt="{{ product.title }}" style="max-height: 450px; object-fit: contain; padding: 30px;">
         </div>
         {% else %}
-        <div class="product-image-detail" style="height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #f8f4f0, #fff); border-radius: 10px; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 10px; left: 10px; font-size: 2rem; color: #D4AF37; opacity: 0.3;">✧</div>
-            <div style="position: absolute; bottom: 10px; right: 10px; font-size: 2rem; color: #D4AF37; opacity: 0.3;">✧</div>
-            <i class="fas fa-gem fa-5x" style="color: #D4AF37;"></i>
+        <div class="product-image-detail" style="height: 500px; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #2a2a2a, #1a1a1a); border-radius: 10px; position: relative; overflow: hidden; border: 1px solid #666666;">
+            <i class="fas fa-gem fa-5x" style="color: #C8A962;"></i>
         </div>
         {% endif %}
     </div>
-    <div class="col-md-6">
+    <div class="col-lg-6 col-md-12 col-sm-12 mt-4 mt-lg-0">
         <h1>{{ product.title }}</h1>
         {% if product.category %}
         <div class="category-badge mb-3">{{ product.category.name }}</div>
@@ -37,7 +33,7 @@
         </div>
         
         <div class="mt-4">
-            <a href="https://wa.me/?text=I'm interested in {{ product.title }} from Jannah Jewels" target="_blank" class="btn btn-success btn-lg whatsapp-btn">
+            <a href="https://wa.me/?text=I'm interested in {{ product.title }} from She Aura" target="_blank" class="btn btn-success btn-lg whatsapp-btn w-100">
                 <i class="fab fa-whatsapp"></i> Inquire via WhatsApp
             </a>
             <p class="mt-2"><small><i class="fas fa-lock"></i> Secure communication</small></p>
@@ -50,30 +46,30 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4 mb-4">
+    <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
         <div class="card h-100 decorative-border">
             <div class="card-body text-center">
-                <i class="fas fa-ring fa-3x mb-3" style="color: #D4AF37;"></i>
+                <i class="fas fa-ring fa-3x mb-3" style="color: #C8A962;"></i>
                 <h5>Engagement Rings</h5>
                 <p>Discover our exquisite collection of engagement rings</p>
                 <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
             </div>
         </div>
     </div>
-    <div class="col-md-4 mb-4">
+    <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
         <div class="card h-100 decorative-border">
             <div class="card-body text-center">
-                <i class="fas fa-gem fa-3x mb-3" style="color: #D4AF37;"></i>
+                <i class="fas fa-gem fa-3x mb-3" style="color: #C8A962;"></i>
                 <h5>Fine Jewelry</h5>
                 <p>Elegant pieces for special occasions</p>
                 <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
             </div>
         </div>
     </div>
-    <div class="col-md-4 mb-4">
+    <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
         <div class="card h-100 decorative-border">
             <div class="card-body text-center">
-                <i class="fas fa-heart fa-3x mb-3" style="color: #D4AF37;"></i>
+                <i class="fas fa-heart fa-3x mb-3" style="color: #C8A962;"></i>
                 <h5>Gift Sets</h5>
                 <p>Perfect gifts for loved ones</p>
                 <a href="#" class="btn btn-outline-primary btn-sm">Explore</a>
@@ -83,34 +79,34 @@
 </div>
 
 <div class="section-title mt-5">
-    <h3>Why Choose Jannah Jewels?</h3>
+    <h3>Why Choose She Aura?</h3>
 </div>
 
 <div class="row mb-5">
-    <div class="col-md-3 text-center">
+    <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-4">
         <div class="p-3">
-            <i class="fas fa-truck fa-2x mb-3" style="color: #8D1B3D;"></i>
+            <i class="fas fa-truck fa-2x mb-3" style="color: #C8A962;"></i>
             <h5>Free Shipping</h5>
             <p class="text-muted">On all orders over $500</p>
         </div>
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-4">
         <div class="p-3">
-            <i class="fas fa-undo fa-2x mb-3" style="color: #8D1B3D;"></i>
+            <i class="fas fa-undo fa-2x mb-3" style="color: #C8A962;"></i>
             <h5>30-Day Returns</h5>
             <p class="text-muted">Hassle-free returns</p>
         </div>
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-4">
         <div class="p-3">
-            <i class="fas fa-certificate fa-2x mb-3" style="color: #8D1B3D;"></i>
+            <i class="fas fa-certificate fa-2x mb-3" style="color: #C8A962;"></i>
             <h5>Certified Quality</h5>
             <p class="text-muted">Authenticity guaranteed</p>
         </div>
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-lg-3 col-md-6 col-sm-12 text-center mb-4">
         <div class="p-3">
-            <i class="fas fa-headset fa-2x mb-3" style="color: #8D1B3D;"></i>
+            <i class="fas fa-headset fa-2x mb-3" style="color: #C8A962;"></i>
             <h5>24/7 Support</h5>
             <p class="text-muted">Expert assistance</p>
         </div>

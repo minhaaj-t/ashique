@@ -3,107 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Jannah Jewels - Exquisite Jewelry Collection{% endblock %}</title>
+    <title>{% block title %}She Aura - Elegant Jewelry Collection{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --qatar-maroon: #8D1B3D;
-            --qatar-white: #FFFFFF;
-            --gold: #D4AF37;
-            --light-gold: #F9E076;
-            --dark-maroon: #5D1229;
-            --light-maroon: #B84A62;
+            --primary-gold: #C8A962;
+            --primary-background: #000000;
+            --off-black: #1A1A1A;
+            --primary-text: #FFFFFF;
+            --off-white: #F4F4F4;
+            --deep-red: #8B0000;
+            --light-red: #990000;
+            --subtle-gray: #666666;
         }
         
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #fdfdfd;
-            color: #333;
+            background-color: var(--primary-background);
+            color: var(--primary-text);
             position: relative;
             overflow-x: hidden;
         }
         
-        /* Decorative elements */
-        .decorative-corner {
-            position: absolute;
-            font-size: 2rem;
-            color: var(--gold);
-            opacity: 0.2;
-            z-index: -1;
-        }
-        
-        .corner-tl {
-            top: 20px;
-            left: 20px;
-        }
-        
-        .corner-tr {
-            top: 20px;
-            right: 20px;
-        }
-        
-        .corner-bl {
-            bottom: 20px;
-            left: 20px;
-        }
-        
-        .corner-br {
-            bottom: 20px;
-            right: 20px;
-        }
-        
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
-            color: var(--qatar-maroon);
+            color: var(--primary-gold);
         }
         
         .navbar {
-            background: linear-gradient(to right, var(--qatar-maroon), var(--dark-maroon));
-            box-shadow: 0 2px 10px rgba(141, 27, 61, 0.3);
+            background: var(--off-black);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
         
         .navbar-brand {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            color: var(--qatar-white) !important;
+            color: var(--primary-text) !important;
             font-size: 1.8rem;
         }
         
         .navbar-brand i {
-            color: var(--gold);
+            color: var(--primary-gold);
         }
         
         .nav-link {
-            color: var(--qatar-white) !important;
+            color: var(--primary-text) !important;
             font-weight: 500;
             transition: all 0.3s ease;
         }
         
         .nav-link:hover {
-            color: var(--light-gold) !important;
+            color: var(--primary-gold) !important;
         }
         
         .btn-primary {
-            background: linear-gradient(to right, var(--qatar-maroon), var(--dark-maroon));
+            background: var(--primary-gold);
             border: none;
             font-weight: 500;
             padding: 10px 20px;
             border-radius: 30px;
             transition: all 0.3s ease;
+            color: var(--primary-background) !important;
         }
         
         .btn-primary:hover {
-            background: linear-gradient(to right, var(--dark-maroon), var(--qatar-maroon));
+            background: #D4AF37;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(141, 27, 61, 0.4);
+            box-shadow: 0 4px 15px rgba(200, 169, 98, 0.4);
         }
         
         .btn-gold {
-            background: linear-gradient(to right, var(--gold), #C9A030);
+            background: var(--primary-gold);
             border: none;
-            color: #333 !important;
+            color: var(--primary-background) !important;
             font-weight: 500;
             padding: 10px 20px;
             border-radius: 30px;
@@ -111,29 +85,30 @@
         }
         
         .btn-gold:hover {
-            background: linear-gradient(to right, #C9A030, var(--gold));
+            background: #D4AF37;
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 15px rgba(200, 169, 98, 0.4);
         }
         
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e0e0e0;
+            border: 1px solid var(--subtle-gray);
             border-radius: 10px;
             overflow: hidden;
-            background: #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: var(--off-black);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            color: var(--primary-text);
         }
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(141, 27, 61, 0.2);
+            box-shadow: 0 15px 30px rgba(200, 169, 98, 0.2);
         }
         
         .product-image {
             height: 250px;
             object-fit: cover;
-            background: linear-gradient(45deg, #f8f4f0, #fff);
+            background: linear-gradient(45deg, #2a2a2a, #1a1a1a);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -141,13 +116,13 @@
         
         .product-image i {
             font-size: 4rem;
-            color: var(--gold);
+            color: var(--primary-gold);
             opacity: 0.7;
         }
         
         .footer {
-            background: linear-gradient(to right, var(--qatar-maroon), var(--dark-maroon));
-            color: var(--qatar-white);
+            background: var(--off-black);
+            color: var(--primary-text);
             padding: 2rem 0;
             position: relative;
         }
@@ -159,12 +134,12 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(to right, var(--gold), var(--light-gold));
+            background: var(--primary-gold);
         }
         
         .footer h5 {
-            color: var(--light-gold);
-            border-bottom: 2px solid var(--gold);
+            color: var(--primary-gold);
+            border-bottom: 2px solid var(--primary-gold);
             padding-bottom: 10px;
             display: inline-block;
         }
@@ -188,20 +163,20 @@
         
         /* Modern category badge styling */
         .category-badge {
-            background: linear-gradient(135deg, var(--qatar-maroon), var(--dark-maroon));
-            color: var(--qatar-white);
+            background: var(--deep-red);
+            color: var(--primary-text);
             font-weight: 500;
             padding: 6px 15px;
             border-radius: 20px;
             font-size: 0.8rem;
             display: inline-block;
-            box-shadow: 0 2px 5px rgba(141, 27, 61, 0.2);
+            box-shadow: 0 2px 5px rgba(139, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
         
         .category-badge:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(141, 27, 61, 0.3);
+            box-shadow: 0 4px 10px rgba(139, 0, 0, 0.4);
         }
         
         .section-title {
@@ -215,16 +190,16 @@
             display: block;
             width: 100px;
             height: 3px;
-            background: linear-gradient(to right, var(--gold), var(--qatar-maroon));
+            background: var(--primary-gold);
             margin: 10px auto;
             border-radius: 3px;
         }
         
         .hero-section {
-            background: linear-gradient(rgba(141, 27, 61, 0.85), rgba(93, 18, 41, 0.9)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
-            color: white;
+            color: var(--primary-text);
             padding: 5rem 0;
             margin-bottom: 2rem;
             border-radius: 0 0 20px 20px;
@@ -239,7 +214,7 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(to right, var(--gold), var(--light-gold));
+            background: var(--primary-gold);
         }
         
         .hero-section:after {
@@ -249,13 +224,13 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(to right, var(--gold), var(--light-gold));
+            background: var(--primary-gold);
         }
         
         .hero-section h1 {
-            color: white;
+            color: var(--primary-text);
             font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .hero-section p {
@@ -268,6 +243,7 @@
         .decorative-border {
             position: relative;
             padding: 20px;
+            border: 1px solid var(--subtle-gray);
         }
         
         .decorative-border:before {
@@ -277,8 +253,8 @@
             left: 0;
             width: 40px;
             height: 40px;
-            border-top: 2px solid var(--gold);
-            border-left: 2px solid var(--gold);
+            border-top: 2px solid var(--primary-gold);
+            border-left: 2px solid var(--primary-gold);
         }
         
         .decorative-border:after {
@@ -288,8 +264,8 @@
             right: 0;
             width: 40px;
             height: 40px;
-            border-bottom: 2px solid var(--gold);
-            border-right: 2px solid var(--gold);
+            border-bottom: 2px solid var(--primary-gold);
+            border-right: 2px solid var(--primary-gold);
         }
         
         /* Animation for decorative elements */
@@ -303,114 +279,288 @@
             animation: float 3s ease-in-out infinite;
         }
         
-        /* Sparkle effect */
-        .sparkle {
-            position: absolute;
-            background: var(--gold);
-            border-radius: 50%;
-            opacity: 0;
-        }
-        
-        @keyframes sparkle {
-            0% { transform: scale(0); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
-        }
-        
-        /* Decorative elements for hero section */
-        .hero-decor {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.1);
-            font-size: 3rem;
-            z-index: 0;
-        }
-        
-        .hero-decor-1 {
-            top: 20%;
-            left: 5%;
-        }
-        
-        .hero-decor-2 {
-            top: 30%;
-            right: 7%;
-        }
-        
-        .hero-decor-3 {
-            bottom: 25%;
-            left: 8%;
-        }
-        
-        .hero-decor-4 {
-            bottom: 20%;
-            right: 5%;
-        }
-        
-        /* Floating elements */
-        .floating-element {
-            position: absolute;
-            z-index: 0;
-            opacity: 0.1;
-        }
-        
-        .floating-1 {
-            top: 15%;
-            left: 10%;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .floating-2 {
-            top: 25%;
-            right: 12%;
-            animation: float 6s ease-in-out infinite 1s;
-        }
-        
-        .floating-3 {
-            bottom: 20%;
-            left: 15%;
-            animation: float 7s ease-in-out infinite 2s;
-        }
-        
-        .floating-4 {
-            bottom: 30%;
-            right: 10%;
-            animation: float 9s ease-in-out infinite 0.5s;
-        }
-        
         /* Category navigation */
         .category-nav {
-            background: linear-gradient(to right, #f8f4f0, #fff);
+            background: var(--off-black);
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border: 1px solid var(--subtle-gray);
         }
         
         .category-btn {
             margin: 5px;
             border-radius: 20px;
-            border: 1px solid var(--qatar-maroon);
-            color: var(--qatar-maroon);
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-text);
             transition: all 0.3s ease;
+            background: transparent;
         }
         
         .category-btn:hover, .category-btn.active {
-            background: linear-gradient(to right, var(--qatar-maroon), var(--dark-maroon));
-            color: white;
-            border-color: var(--qatar-maroon);
+            background: var(--primary-gold);
+            color: var(--primary-background);
+            border-color: var(--primary-gold);
+        }
+        
+        /* Alert styles */
+        .alert-info {
+            background-color: var(--off-black);
+            border: 1px solid var(--subtle-gray);
+            color: var(--primary-text);
+        }
+        
+        .alert-info a {
+            color: var(--primary-gold);
+        }
+        
+        .table {
+            color: var(--primary-text);
+        }
+        
+        .table th {
+            background-color: var(--off-black);
+            color: var(--primary-gold);
+        }
+        
+        .table td {
+            border-color: var(--subtle-gray);
+        }
+        
+        .table-hover tbody tr:hover {
+            background-color: rgba(200, 169, 98, 0.1);
+        }
+        
+        .form-control {
+            background-color: var(--off-black);
+            border: 1px solid var(--subtle-gray);
+            color: var(--primary-text);
+        }
+        
+        .form-control:focus {
+            background-color: var(--off-black);
+            border-color: var(--primary-gold);
+            color: var(--primary-text);
+            box-shadow: 0 0 0 0.25rem rgba(200, 169, 98, 0.25);
+        }
+        
+        .form-label {
+            color: var(--primary-text);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-gold);
+            border-color: var(--primary-gold);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-gold);
+            color: var(--primary-background);
+        }
+        
+        .btn-outline-danger {
+            color: var(--deep-red);
+            border-color: var(--deep-red);
+        }
+        
+        .btn-outline-danger:hover {
+            background-color: var(--deep-red);
+            color: var(--primary-text);
+        }
+        
+        .dropdown-menu {
+            background-color: var(--off-black);
+            border: 1px solid var(--subtle-gray);
+        }
+        
+        .dropdown-item {
+            color: var(--primary-text);
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--subtle-gray);
+            color: var(--primary-text);
+        }
+        
+        hr {
+            background-color: var(--subtle-gray);
+            opacity: 0.5;
+        }
+        
+        /* Desktop Styles (Large screens) */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+            
+            .hero-section h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.3rem;
+            }
+            
+            .product-image {
+                height: 300px;
+            }
+            
+            .category-nav {
+                padding: 20px;
+            }
+            
+            .category-btn {
+                margin: 8px;
+                padding: 8px 20px;
+            }
+            
+            .footer h5 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Tablet Styles (Medium screens) */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .hero-section {
+                padding: 3rem 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.1rem;
+                max-width: 90%;
+            }
+            
+            .product-image {
+                height: 220px;
+            }
+            
+            .category-nav {
+                padding: 15px;
+            }
+            
+            .category-btn {
+                margin: 6px;
+                padding: 6px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title:after {
+                width: 80px;
+                height: 2px;
+            }
+            
+            .footer h5 {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Mobile Styles (Small screens) */
+        @media (max-width: 767px) {
+            .hero-section {
+                padding: 2rem 0;
+                border-radius: 0 0 15px 15px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+                max-width: 95%;
+            }
+            
+            .product-image {
+                height: 200px;
+            }
+            
+            .category-nav {
+                padding: 10px;
+            }
+            
+            .category-btn {
+                margin: 4px;
+                padding: 5px 12px;
+                font-size: 0.8rem;
+                border-radius: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title:after {
+                width: 60px;
+                height: 2px;
+            }
+            
+            .footer {
+                padding: 1.5rem 0;
+            }
+            
+            .footer h5 {
+                font-size: 1.1rem;
+            }
+            
+            .card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Extra Small Mobile Styles */
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 1.7rem;
+            }
+            
+            .hero-section p {
+                font-size: 0.9rem;
+            }
+            
+            .product-image {
+                height: 180px;
+            }
+            
+            .category-btn {
+                margin: 3px;
+                padding: 4px 10px;
+                font-size: 0.75rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .footer .row > div {
+                margin-bottom: 1.5rem;
+            }
+            
+            .footer .row > div:last-child {
+                margin-bottom: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Decorative corner elements -->
-    <div class="decorative-corner corner-tl">✧</div>
-    <div class="decorative-corner corner-tr">✧</div>
-    <div class="decorative-corner corner-bl">✧</div>
-    <div class="decorative-corner corner-br">✧</div>
-
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="{{ url_for('index') }}">
-                <i class="fas fa-gem"></i> Jannah Jewels
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="She Aura Logo" height="40" class="d-inline-block align-text-top">
+                She Aura
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -473,8 +623,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <h5><i class="fas fa-gem"></i> Jannah Jewels</h5>
-                    <p>Exquisite jewelry crafted with passion and precision. Discover timeless pieces that celebrate life's most precious moments.</p>
+                    <h5><img src="{{ url_for('static', filename='img/logo.png') }}" alt="She Aura Logo" height="30" class="d-inline-block align-text-top"> She Aura</h5>
+                    <p>Elegant jewelry crafted with passion and precision. Discover timeless pieces that celebrate life's most precious moments.</p>
                     <div class="mt-3">
                         <span class="category-badge">Luxury Collection</span>
                     </div>
@@ -483,7 +633,7 @@
                     <h5>Contact Us</h5>
                     <p><i class="fas fa-map-marker-alt"></i> Luxury Jewelry District</p>
                     <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><i class="fas fa-envelope"></i> info@jannahjewels.com</p>
+                    <p><i class="fas fa-envelope"></i> info@sheaura.com</p>
                 </div>
                 <div class="col-md-4 mb-4">
                     <h5>Follow Us</h5>
@@ -495,9 +645,9 @@
                     </div>
                 </div>
             </div>
-            <hr class="my-4" style="background-color: var(--light-gold); opacity: 0.5;">
+            <hr class="my-4">
             <div class="text-center">
-                <p>&copy; 2025 Jannah Jewels. All rights reserved. Crafted with <i class="fas fa-heart" style="color: var(--gold);"></i></p>
+                <p>&copy; 2025 She Aura. All rights reserved. Crafted with <i class="fas fa-heart" style="color: var(--primary-gold);"></i></p>
             </div>
         </div>
     </footer>
@@ -509,17 +659,6 @@
             const heroSection = document.querySelector('.hero-section');
             if (!heroSection) return;
             
-            for (let i = 0; i < 15; i++) {
-                const sparkle = document.createElement('div');
-                sparkle.classList.add('sparkle');
-                sparkle.style.left = Math.random() * 100 + '%';
-                sparkle.style.top = Math.random() * 100 + '%';
-                sparkle.style.width = Math.random() * 5 + 2 + 'px';
-                sparkle.style.height = sparkle.style.width;
-                sparkle.style.animation = `sparkle ${Math.random() * 2 + 1}s infinite`;
-                sparkle.style.animationDelay = Math.random() * 2 + 's';
-                heroSection.appendChild(sparkle);
-            }
         }
         
         // Initialize sparkles when page loads

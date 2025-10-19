@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Edit Jewelry Piece - Jannah Jewels{% endblock %}
+{% block title %}Edit Jewelry Piece - She Aura{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-lg-6 col-md-8 col-sm-12">
         <div class="card">
-            <div class="card-header" style="background: linear-gradient(to right, #8D1B3D, #5D1229); color: white;">
-                <h3 class="float-start"><i class="fas fa-edit"></i> Edit Jewelry Piece</h3>
-                <a href="{{ url_for('admin') }}" class="btn btn-light float-end">
+            <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-md-center" style="background-color: #1A1A1A; color: #FFFFFF; border-bottom: 1px solid #666666;">
+                <h3 class="mb-3 mb-md-0"><i class="fas fa-edit"></i> Edit Jewelry Piece</h3>
+                <a href="{{ url_for('admin') }}" class="btn btn-outline-light">
                     <i class="fas fa-arrow-left"></i> Back to Dashboard
                 </a>
             </div>
@@ -36,7 +36,7 @@
                     <div class="mb-3">
                         <label for="image_url" class="form-label"><i class="fas fa-image"></i> Image URL</label>
                         <input type="url" class="form-control" id="image_url" name="image_url" value="{{ product.image_url or '' }}" placeholder="https://example.com/jewelry-image.jpg">
-                        <div class="form-text">Provide a high-quality image URL for the jewelry piece</div>
+                        <div class="form-text text-white-50">Provide a high-quality image URL for the jewelry piece</div>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <button type="submit" class="btn btn-gold">

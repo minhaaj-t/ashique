@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Admin Login - Jannah Jewels{% endblock %}
+{% block title %}Admin Login - She Aura{% endblock %}
 
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="card">
-            <div class="card-header text-center" style="background: linear-gradient(to right, #8D1B3D, #5D1229); color: white;">
-                <h3><i class="fas fa-lock"></i> Jannah Jewels Admin Portal</h3>
+            <div class="card-header text-center" style="background-color: #1A1A1A; color: #FFFFFF; border-bottom: 1px solid #666666;">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="She Aura Logo" height="40" class="d-inline-block align-text-top mb-2">
+                <h3><i class="fas fa-lock"></i> She Aura Admin Portal</h3>
                 <p class="mb-0">Access your jewelry collection management dashboard</p>
             </div>
             <div class="card-body">
@@ -27,9 +28,9 @@
                     </div>
                 </form>
             </div>
-            <div class="card-footer text-center">
+            <div class="card-footer text-center" style="background-color: #1A1A1A; border-top: 1px solid #666666;">
                 <small class="text-muted">
-                    <i class="fas fa-shield-alt"></i> Secure admin access to Jannah Jewels collection
+                    <i class="fas fa-shield-alt"></i> Secure admin access to She Aura collection
                 </small>
             </div>
         </div>

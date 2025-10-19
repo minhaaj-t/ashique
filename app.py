@@ -216,9 +216,9 @@ if __name__ == '__main__':
         db.create_all()
         
         # Create admin user if not exists
-        admin_user = User.query.filter_by(username='ashique').first()
+        admin_user = User.query.filter_by(username='sheaura').first()
         if not admin_user:
-            admin_user = User(username='ashique', password='ashique')
+            admin_user = User(username='sheaura', password='sheaura')
             db.session.add(admin_user)
             db.session.commit()
             
@@ -226,9 +226,9 @@ if __name__ == '__main__':
         if not Category.query.first():
             categories = [
                 Category(name='Engagement Rings', description='Beautiful engagement rings for your special moment'),
-                Category(name='Fine Jewelry', description='Elegant pieces for special occasions'),
-                Category(name='Royal Collection', description='Exclusive pieces inspired by royal elegance'),
-                Category(name='Gift Sets', description='Perfect curated gifts for your loved ones')
+                Category(name='Necklaces', description='Elegant necklaces for every occasion'),
+                Category(name='Earrings', description='Stunning earrings to complement your style'),
+                Category(name='Bracelets', description='Chic bracelets for a touch of elegance')
             ]
             for category in categories:
                 db.session.add(category)
